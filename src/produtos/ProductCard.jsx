@@ -1,23 +1,47 @@
-function ProdutoCard() {
+
+import { useState } from "react";
+
+function ProductCard({ nome, descricao, preco, imagem, categoria }) {
+  const [favorito, setFavorito] = useState(false);
+
   return (
     <div className="produto-card">
+
+      <button
+        className="favorito"
+        onClick={() => setFavorito(!favorito)}
+        aria-label="Favoritar produto"
+      >
+        {favorito ? "♥" : "♡"}
+      </button>
+
       <img
-        src="/imagens/galaxy-s24.png"
-        alt="Smartphone Galaxy S24"
+        src={imagem}
+        alt={nome}
         className="produto-imagem"
       />
 
-      <h3>Smartphone Galaxy S24</h3>
+      <h3>{nome}</h3>
 
-      <p>
-        Desempenho de outro nível com câmera incrível.
-      </p>
+      <p>{descricao}</p>
 
-      <strong>R$ 2.499,00</strong>
+      <span className="categoria">
+        {categoria}
+      </span>
 
-      <button>Comprar</button>
+      <strong>
+        R$ {Number(preco).toLocaleString("pt-BR", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+      </strong>
+
+      <button className="botao-comprar">
+        🛒 Comprar
+      </button>
+
     </div>
   );
 }
 
-export default ProdutoCard;
+export default ProductCard;
