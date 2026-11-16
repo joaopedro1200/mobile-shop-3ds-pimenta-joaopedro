@@ -38,7 +38,6 @@ function Home() {
 
   return (
     <main className="home-container" id="inicio">
-
       <div className="welcome" id="produtos">
         <div>
           <h2>PRODUTOS</h2>
@@ -68,20 +67,12 @@ function Home() {
       </section>
 
       {produtosFiltrados.length === 0 && (
-        <p className="sem-produtos">Nenhum produto encontrado.</p>
+        <p className="sem-produtos">
+          Nenhum produto encontrado.
+        </p>
       )}
-
     </main>
   );
 }
 
 export default Home;
-
-<ProductCard
-  key={produto.id}
-  nome={produto.nome}
-  preco={produto.preco}
-  imagem={produto.imagem}
-  descricao={produto.descricao}
-  categoria={produto.categoria}
-/>
